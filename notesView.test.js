@@ -19,6 +19,22 @@
  
     expect(document.querySelectorAll('div.note').length).toEqual(2);
    });
+
+   it('clicks button', () => {
+     //Arrange
+     document.body.innerHTML = fs.readFileSync('./index.html');
+
+     const view = new NotesView();
+
+     //Act
+     const buttonEl = document.querySelector('#show-button-message');
+     buttonEl.click();
+
+     //Assert
+     expect(document.querySelector('#message')).not.toBeNull();
+   })
 });
+
+
 
 module.exports = NotesView;
