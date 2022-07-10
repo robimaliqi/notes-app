@@ -22,23 +22,18 @@
 
    it('adds a new note', () => {
     document.body.innerHTML = fs.readFileSync('./index.html');
-  
+
     const model = new NotesModel();
     const view = new NotesView(model);
   
-    // 1. Fill the input
-    const input = document.querySelector('#add-note-input');
-    input.value = 'My new amazing test note';
   
-    // 2. Click the button
-    const button = document.querySelector('#add-note-btn');
-    button.click();
+    const inputEl = document.querySelector('#add-note-input');
+    inputEl.value = 'My new amazing test note';
   
-    // 3. The note should be on the page
+    const buttonEl = document.querySelector('#add-note-btn');
+    buttonEl.click();
+
     expect(document.querySelectorAll('div.note').length).toEqual(1);
     expect(document.querySelectorAll('div.note')[0].innerText).toEqual('My new amazing test note');
   });
-
-
-
-module.exports = NotesView;
+ });
